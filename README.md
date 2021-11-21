@@ -10,7 +10,7 @@
 ## Database Setup
 ```bash
     mongo
-    use dblp
+    use paper-ranker
     db.paper_collection.createIndex({"pid":1}, {background:true})
     db.keyword_collection.createIndex({"keyword":1}, {background:true})
 ```
