@@ -199,7 +199,10 @@ def searchFilter1():
         if int(post['year']) >= 2010:
             filtered.append(post)
 
-    page, per_page, offset = get_page_args()
+    # page, per_page, offset = get_page_args()
+    page = int(request.args.get('page', 1))
+    per_page = 5
+    offset = (page - 1) * per_page
     total = len(filtered)
     pagination_posts = get_posts(filtered, offset=offset, per_page=per_page)
     pagination = Pagination(page=page, per_page=per_page, total=total,
@@ -232,7 +235,10 @@ def searchFilter2():
         if int(post['year']) >= 2000 and int(post['year']) < 2010:
             filtered.append(post)
 
-    page, per_page, offset = get_page_args()
+    # page, per_page, offset = get_page_args()
+    page = int(request.args.get('page', 1))
+    per_page = 5
+    offset = (page - 1) * per_page
     total = len(filtered)
     pagination_posts = get_posts(filtered, offset=offset, per_page=per_page)
     pagination = Pagination(page=page, per_page=per_page, total=total,
@@ -261,7 +267,10 @@ def searchFilter3():
         if int(post['year']) >= 1990 and int(post['year']) < 2000:
             filtered.append(post)
 
-    page, per_page, offset = get_page_args()
+    # page, per_page, offset = get_page_args()
+    page = int(request.args.get('page', 1))
+    per_page = 5
+    offset = (page - 1) * per_page
     total = len(filtered)
     pagination_posts = get_posts(filtered, offset=offset, per_page=per_page)
     pagination = Pagination(page=page, per_page=per_page, total=total,
@@ -289,7 +298,10 @@ def searchFilterRank1():
         if post['rank'] == 'A*':
             filtered.append(post)
 
-    page, per_page, offset = get_page_args()
+    # page, per_page, offset = get_page_args()
+    page = int(request.args.get('page', 1))
+    per_page = 5
+    offset = (page - 1) * per_page
     total = len(filtered)
     pagination_posts = get_posts(filtered, offset=offset, per_page=per_page)
     pagination = Pagination(page=page, per_page=per_page, total=total,
@@ -317,7 +329,10 @@ def searchFilterRank2():
         if post['rank'] == 'A':
             filtered.append(post)
 
-    page, per_page, offset = get_page_args()
+    # page, per_page, offset = get_page_args()
+    page = int(request.args.get('page', 1))
+    per_page = 5
+    offset = (page - 1) * per_page
     total = len(filtered)
     pagination_posts = get_posts(filtered, offset=offset, per_page=per_page)
     pagination = Pagination(page=page, per_page=per_page, total=total,
@@ -345,7 +360,10 @@ def searchFilterRank3():
         if post['rank'] == 'B':
             filtered.append(post)
 
-    page, per_page, offset = get_page_args()
+    # page, per_page, offset = get_page_args()
+    page = int(request.args.get('page', 1))
+    per_page = 5
+    offset = (page - 1) * per_page
     total = len(filtered)
     pagination_posts = get_posts(filtered, offset=offset, per_page=per_page)
     pagination = Pagination(page=page, per_page=per_page, total=total,
@@ -373,7 +391,10 @@ def searchFilterRank4():
         if post['rank'] == 'C':
             filtered.append(post)
 
-    page, per_page, offset = get_page_args()
+    # page, per_page, offset = get_page_args()
+    page = int(request.args.get('page', 1))
+    per_page = 5
+    offset = (page - 1) * per_page
     total = len(filtered)
     pagination_posts = get_posts(filtered, offset=offset, per_page=per_page)
     pagination = Pagination(page=page, per_page=per_page, total=total,
