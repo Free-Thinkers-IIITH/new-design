@@ -164,6 +164,9 @@ def search():
         query = ' '.join(query.split())
         query = query.replace(' ', '+')
         posts = get_papers(query, 1000)
+        ranks_order = ['A*', 'A', 'B', 'C', 'Z']
+        if len(posts) >0:
+            posts.sort(key = lambda ele: ranks_order.index(ele["rank"]))
     # page, per_page, offset = get_page_args()
     page = int(request.args.get('page', 1))
     per_page = 5

@@ -12,6 +12,8 @@ bcrypt = "*"
 flask-paginate = "*"
 flask-mongoengine = "*"
 mongoengine = "*"
+requests = "*"
+bs4 = "*"
 
 [dev-packages]
 

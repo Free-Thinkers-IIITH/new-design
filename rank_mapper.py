@@ -2,6 +2,7 @@ from models import *
 import threading
 import json
 import time
+import conf_scrape
 
 rank_map = dict()
 def build_rank(file_name):
@@ -25,7 +26,9 @@ def get_rank(conf_name):
     # name_search_count = 0
     # temp = Conference.objects(conf_id=conf_id).first()
     temp = rank_map.get(conf_id)
-    if temp:
+    if temp is None:
+        return 'Z'
+    else:
         return temp
     # else:
     #     conf_id = hash(conf_name)
@@ -35,10 +38,12 @@ def get_rank(conf_name):
     #         name_search_count += 1
     #         print('name search success! ', name_search_count)
     #         return temp
-    return None
 
 def insert_conf_ranks():
-    files = ['Ranks/rank1.json', 'Ranks/rank2.json', 'Ranks/rank3.json']
+    if conf_scrape.fetch_from_core() :
+        files = ['Ranks/rank1.json', 'Ranks/rank2.json', 'Ranks/rank3.json', 'Ranks/rank4.json']
+    else:
+        files = ['Ranks/rank1.json', 'Ranks/rank2.json', 'Ranks/rank3.json']
     # print('Inserting Conference Ranks')
     start = time.time()
     threads = []
