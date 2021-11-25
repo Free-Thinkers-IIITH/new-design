@@ -62,8 +62,8 @@ def insert_paper_new_design(key, paper_list):
 def background_insertion(key, hits):
     print(f'Backgroud worker! fetching {key} papers From API')
     start = time.time()
-    paper_list = fetch_dblp(key, hits)
-    paper_list += fetch_semantic_scholar(key, hits)
+    paper_list = bg_fetch_dblp(key, hits)
+    paper_list += bg_fetch_semantic_scholar(key, hits)
     end = time.time()
     print(f'Total {len(paper_list)} papers fetched in {end-start} seconds')
     print('Background worker inserting to db')
